@@ -1,24 +1,34 @@
-# README
+## Instagram Clone アプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### バージョン
+Ruby:2.6.3
 
-Things you may want to cover:
+Rails:5.2.4
 
-* Ruby version
+### テーブル設計
 
-* System dependencies
+#### pictures
+|culumn  |type  |
+|---|---|
+|id  |integer  |
+|title |string  |
+|content |text  |
+|image |string  |
+|user_id |integer |
 
-* Configuration
 
-* Database creation
+#### users
+|culumn  |type  |
+|---|---|
+|id  |integer  |
+|name |string  |
+|email |string  |
+|image | string |
+|password |password_digest |
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### favorites
+|culumn  |type  |
+|---|---|
+|id  |integer  |
+|user_id |integer  |
+|picture_id |integer  |
