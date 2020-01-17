@@ -13,7 +13,7 @@ Rails:5.2.4
 |id  |integer  |
 |title |string  |
 |content |text  |
-|image |string  |
+|image |text  |
 |user_id |integer |
 
 
@@ -23,7 +23,7 @@ Rails:5.2.4
 |id  |integer  |
 |name |string  |
 |email |string  |
-|image | string |
+|image | text |
 |password |password_digest |
 
 #### favorites
