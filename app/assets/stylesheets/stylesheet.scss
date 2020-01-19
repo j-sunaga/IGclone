@@ -1,0 +1,234 @@
+
+//common
+body {
+  background-color: white;
+  color: black;
+  overflow-y: scroll;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin: 5px;
+  line-height: 1.34;
+}
+a {
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+h2{
+  font-size: 12px;
+}
+
+.btn{
+  margin-top: 10px;
+}
+
+//navbar
+
+.navbar{
+  background-image: url("header.png");
+  height: 50px;
+  background-size:cover;
+}
+
+.navbar-text{
+  color: white;
+}
+
+.navbar-text a,.navbar-text a:visited{
+  color: white;
+  text-decoration: none;
+}
+
+.navbar img{
+  width: 24px;
+  height: 24px;
+}
+
+// Sidemenu
+.sidemenu{
+  font-size: 13px;
+  color: #1d2129;
+}
+
+
+.sidemenu li{
+  margin-bottom: 10px;
+}
+
+.sideitem{
+  height: 28px;
+}
+
+.sidemenu a,.sidemenu a:visited{
+  color: #1d2129;
+  text-decoration: none;
+}
+
+.sidemenu-img, .sidemenu-img img{
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.friend-img,.friend-img img{
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+
+//TimeLine画面
+.timelines{
+      margin-top: 0;
+      margin-bottom: 10px;
+      width: 100%;
+      padding-inline-start: 10px
+}
+
+.timeline{
+  background-color: white;
+  width: 100%;
+  padding: 10px 0px;
+  padding-inline-start: 10px;
+  margin-bottom: 10px;
+  border: solid 0.5px gray;
+}
+
+.timeline-data,.timeline-edit,.timeline-content,.timeline-img{
+  margin-bottom: 10px;
+}
+
+.timeline a{
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+  text-decoration: none;
+  color: #1d2129;
+}
+
+
+.timeline p{
+word-wrap: break-word;
+}
+
+
+.profile-img img{
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin-right: 10px;
+}
+
+.timeline-img img{
+  width: 100px;
+  height: 100px;
+}
+
+.timeline span{
+  display: block;
+  font-size: 1.2rem;
+}
+
+.create-date{
+  height: 20px;
+}
+
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.img-fluid img{
+  width: 350px;
+  height: 350px;
+}
+
+
+//sign-up
+.common-container{
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.user-img img{
+  width: 40px;
+  height: 40px;
+}
+
+.submit{
+  margin-top: 10px;
+}
+
+.input{
+  margin-bottom: 10px;
+}
+
+
+.user-image input{
+  margin-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+
+}
+
+.timeline-image input{
+  margin-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+}
+
+.timeline-image img{
+  width: 40px;
+  height: 40px;
+}
+
+//users
+
+.img-profile img{
+
+  width: 200px;
+  height: 200px;
+
+}
+
+//relationship
+.relationship_table table {
+  table-layout: fixed;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.relationship_table td{
+text-align: left;
+word-wrap: break-word;
+}
+
+
+//other
+.field_with_errors {
+    margin: auto;
+    padding: 2px;
+    display: table;
+}
+
+#error_explanation {
+  text-align: center;
+  font-size: 12px;
+  width: 300px;
+  border: 2px solid black;
+  padding: 7px 7px 0;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+.field{
+  margin: auto;
+  margin-bottom: 10px;
+}

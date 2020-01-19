@@ -5,11 +5,44 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/timelines"> <%= image_tag('') %></a>
+          </div>
+
+          <div class="collapse navbar-collapse navbar-right" id="navbarEexample1">
+            <ul class="nav navbar-nav float-right">
+              <li><p class="navbar-text">Pictures</p></li>
+              <li ><p class="navbar-text">User</p></li>
+              <li ><p class="navbar-text">User</p></li>
+              <li><p class="navbar-text">User</p></li>
+
+              <!-- <li ><p class="navbar-text">新規登録</p></li>
+              <li ><p class="navbar-text">ログイン</p></li> -->
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+
+    <div class="main">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
