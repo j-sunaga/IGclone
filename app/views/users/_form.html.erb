@@ -30,9 +30,9 @@
       <div class="form-group">
         <label>プロフィール画像</label>
         <div class="img-profile">
-          <%# <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-            <%# <%= f.file_field :image %> %>
-            <%# <%= f.hidden_field :image_cache %> %> %>
+          <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+          <%= f.file_field :image %>
+          <%= f.hidden_field :image_cache %>
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       # session[:user_id]=@user.id
       # redirect_to timelines_path, notice: "会員登録が完了しました。"
+      redirect_to user_path,notice:  "会員登録が完了しました。"
     else
       render 'new'
     end
