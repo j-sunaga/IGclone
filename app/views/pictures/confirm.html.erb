@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <h4>以下の内容で、送信する。</h4>
+
+        <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+
+          <%= form.hidden_field :title %>
+          <%= form.hidden_field :content %>
+          <%= form.hidden_field :image %>
+          <%= form.hidden_field :image_cache %>
+
+        <form>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label>タイトル</label>
+                <input type="text" readonly class="form-control" name="picture[title]" value="<%=@picture.title%>">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label>内容</label>
+                   <textarea readonly class="form-control" name="picture[content]" rows="5"><%=@picture.content%></textarea>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <label>画像</label>
+                <div class="img-fluid">
+                <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label>ユーザ名</label>
+                <input type="text" readonly class="form-control" name="picture[title]" value="<%= @picture.user.name %>">
+                </div>
+                </div>
+            <button type="submit" class="btn btn-primary" name="commit">投稿する</button>
+        <% end %>
+
+        <%= form_with(model:@picture, url:new_picture_path, local:true, method:"get") do |form| %>
+          <%= form.hidden_field :title %>
+          <%= form.hidden_field :content %>
+          <%= form.hidden_field :image %>
+          <%= form.hidden_field :image_cache %>
+          <button type="submit" class="btn btn-primary" name="back">戻る</button>
+        <% end %>
+        </form>
+    </div>
+  </div>
+</div>

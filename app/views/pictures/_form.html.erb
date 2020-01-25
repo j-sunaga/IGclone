@@ -1,0 +1,44 @@
+<%= form_with(model: picture, local: true, url: choose_new_or_edit) do |form| %>
+  <% if picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(picture.errors.count, "error") %> エラーが発生しました:</h2>
+      <ul>
+        <% picture.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>タイトル</label>
+        <input type="text" class="form-control" name="picture[title]" value="<%=@picture.title%>">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>内容</label>
+        <textarea class="form-control" name="picture[content]" rows="5"><%=@picture.content%></textarea>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="picture-image">
+        <div class="form-group">
+           <label>画像</label>
+          <!-- 確認画面から新規作成画面に戻った時に、 -->
+          <!-- アップロードした画像を表示させるための記述 -->
+          <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+          <%= form.file_field :image %>
+          <%= form.hidden_field :image_cache %>
+        </div>
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" name="commit">投稿する</button>
+  </form>
+<% end %>
