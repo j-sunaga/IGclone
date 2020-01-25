@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+
+  #アソシエーション
+  has_many :pictures
+
   #Validationの追加
   validates :name, presence: true, length: {maximum: 30}
   validates :email, presence: true, length: {maximum: 255},format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
