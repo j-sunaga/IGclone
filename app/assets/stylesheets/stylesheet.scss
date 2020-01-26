@@ -25,6 +25,31 @@ h2{
   margin-top: 10px;
 }
 
+.btn-primary {
+    background: #db2f79; //ボタンの背景色
+    color: #ffffff; //ボタンのテキストの色
+    border-color: #db2f79;
+}
+
+.btn-primary:hover, .btn-primary:focus,
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary,
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus,
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+    background: #db2f79; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #ffffff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    border-color: #db2f79;
+     opacity: 0.7;
+}
+
+
+
+
 //navbar
 
 .navbar{
