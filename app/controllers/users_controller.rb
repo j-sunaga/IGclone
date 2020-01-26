@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
-  # before_action :user_find, only: [:show,:edit,:update]
-  # before_action :user_check, only: [:edit,:update]
-  # skip_before_action :login_required
+  before_action :user_find, only: [:show,:edit,:update]
+  before_action :user_check, only: [:edit,:update]
 
   def new
      @user = User.new
@@ -11,20 +10,14 @@ class UsersController < ApplicationController
   def create
     @user= User.new(user_params)
     if @user.save
-      # session[:user_id]=@user.id
-      # redirect_to timelines_path, notice: "会員登録が完了しました。"
-      redirect_to user_path,notice:  "会員登録が完了しました。"
+      session[:user_id]=@user.id
+      redirect_to pictures_path, notice: "会員登録が完了しました。"
     else
       render 'new'
     end
   end
 
-  def show
-    @user=User.find(1)
-  end
-
   def edit
-    @user=User.find(1)
   end
 
   #アップデートアクション
@@ -36,7 +29,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
 
   def user_params
@@ -44,15 +36,15 @@ class UsersController < ApplicationController
   end
 
   def user_find
-    @user= User.find(params[:id])
+    @user= current_user
   end
 
-  # #ログインユーザが同一でない場合はトップページに戻るTrueを返す
-  # def user_check
-  #   unless @user.id == current_user.id
-  #     flash[:notice] = '編集できません'
-  #     redirect_to timelines_path
-  #   end
-  # end
+  #ログインユーザが同一でない場合はトップページに戻るTrueを返す
+  def user_check
+    unless @user.id == current_user.id
+      flash[:notice] = '編集できません'
+      redirect_to timelines_path
+    end
+  end
 
 end
