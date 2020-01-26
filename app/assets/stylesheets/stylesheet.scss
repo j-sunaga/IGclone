@@ -42,6 +42,11 @@ h2{
   text-decoration: none;
 }
 
+.navbar-brand a,.navbar-brand a:visited{
+  color: white;
+  text-decoration: none;
+}
+
 .navbar img{
   width: 24px;
   height: 24px;
@@ -82,28 +87,34 @@ h2{
 }
 
 
-//TimeLine画面
-.timelines{
+//picture画面
+.pictures{
       margin-top: 0;
       margin-bottom: 10px;
       width: 100%;
       padding-inline-start: 10px
 }
 
-.timeline{
+.row-eq-height{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.picture{
   background-color: white;
   width: 100%;
   padding: 10px 0px;
   padding-inline-start: 10px;
   margin-bottom: 10px;
-  border: solid 0.5px gray;
+  border: solid 0.5px #db2f79;
+  border-radius: 10%;
 }
 
-.timeline-data,.timeline-edit,.timeline-content,.timeline-img{
+.picture-data,.picture-edit,.picture-content,.picture-img{
   margin-bottom: 10px;
 }
 
-.timeline a{
+.picture a{
   display: inline-block;
   float: left;
   margin-right: 5px;
@@ -112,24 +123,25 @@ h2{
 }
 
 
-.timeline p{
+.picture p{
 word-wrap: break-word;
 }
 
 
 .profile-img img{
+  border-radius: 50%;
   width: 30px;
   height: 30px;
   float: left;
   margin-right: 10px;
 }
 
-.timeline-img img{
+.picture-img img{
   width: 100px;
   height: 100px;
 }
 
-.timeline span{
+.picture span{
   display: block;
   font-size: 1.2rem;
 }
@@ -177,13 +189,13 @@ word-wrap: break-word;
 
 }
 
-.timeline-image input{
+.picture-image input{
   margin-bottom: 10px;
   display: inline-block;
   text-align: center;
 }
 
-.timeline-image img{
+.picture-image img{
   width: 40px;
   height: 40px;
 }
