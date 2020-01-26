@@ -3,18 +3,18 @@ class PicturesController < ApplicationController
   before_action :user_check, only: [:edit,:update,:destroy]
 
   def index
-    @pictures = picture.all.order(created_at: "DESC")
+    @pictures = Picture.all.order(created_at: "DESC")
   end
 
   def show
-    @picture = picture.find(params[:id])
+    @picture = Picture.find(params[:id])
   end
 
   def new
     if params[:back]
       @picture = current_user.pictures.build(picture_params)
     else
-      @picture = picture.new
+      @picture = Picture.new
     end
   end
 
