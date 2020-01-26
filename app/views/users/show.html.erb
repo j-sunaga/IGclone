@@ -24,9 +24,9 @@
       </div>
     </div>
 
-    <%# <% if @user.id == current_user.id then %> %>
+    <% if @user.id == current_user.id then %>
       <%= link_to '編集', edit_user_path(@user) %> |
-    <%# <% end %> %>
-    <%# <%= link_to '戻る', user_path %> %>
+    <% end %>
+    <%= link_to '投稿一覧', pictures_path %>
   </form>
 </div>
