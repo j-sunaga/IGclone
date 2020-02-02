@@ -53,7 +53,6 @@ h2{
 }
 
 
-
 //navbar
 
 .navbar{
@@ -177,6 +176,7 @@ word-wrap: break-word;
 
 .create-date{
   height: 20px;
+  display: block;
 }
 
 .clearfix::after{
@@ -237,21 +237,6 @@ word-wrap: break-word;
   height: 200px;
 
 }
-
-//relationship
-.relationship_table table {
-  table-layout: fixed;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-
-.relationship_table td{
-text-align: left;
-word-wrap: break-word;
-}
-
-
 //other
 .field_with_errors {
     margin: auto;
