@@ -21,7 +21,14 @@
             <%= link_to '戻る', pictures_path %>
             <% if @picture.user.id == current_user.id then %>
             <a href="/pictures/<%=@picture.id%>/edit" data-confirm="本当に編集してよろしいですか"><i class="far fa-edit fa-color"></i></a>
-            <a href="/pictures/<%=@picture.id%>" data-confirm="本当に編集してよろしいですか" data-method=delete><i class="fas fa-trash-alt fa-color"></i>
+            <a href="/pictures/<%=@picture.id%>" data-confirm="本当に削除してよろしいですか" data-method=delete><i class="fas fa-trash-alt fa-color"></i>
+            <% end %>
+            <% unless @picture.user_id == current_user.id %>
+              <% if @favorite.present? %>
+              <a href="/favorites/<%=@favorite.id%>" data-method=delete><i class="fas fa-heart fa-color"></i>
+              <% else %>
+              <a href="/favorites?picture_id=<%=@picture.id %>" data-method=post><i class="far fa-heart fa-color"></i>
+              <% end %>
             <% end %>
           </div>
         </div>
