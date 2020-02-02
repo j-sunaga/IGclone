@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   before_action :user_find, only: [:show,:edit,:update]
-  before_action :user_check, only: [:edit,:update]
 
   def new
      @user = User.new
@@ -37,14 +36,6 @@ class UsersController < ApplicationController
 
   def user_find
     @user= current_user
-  end
-
-  #ログインユーザが同一でない場合はトップページに戻るTrueを返す
-  def user_check
-    unless @user.id == current_user.id
-      flash[:notice] = '編集できません'
-      redirect_to timelines_path
-    end
   end
 
 end
