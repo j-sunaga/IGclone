@@ -29,6 +29,8 @@
               <% if current_user then %>
               <p class="navbar-text"><%= link_to "#{current_user.name}", user_path(current_user.id) %></p>
               <li ><p class="navbar-text"><%= link_to "新規投稿", new_picture_path %></p></li>
+              <li ><p class="navbar-text"><%= link_to "投稿写真一覧", pictures_path %></p></li>
+              <li ><p class="navbar-text"><%= link_to "お気に入り一覧", favorites_path %></p></li>
               <li><p class="navbar-text"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></p></li>
               <% else %>
               <li ><p class="navbar-text"><%= link_to "新規登録", new_user_path %></p></li>
