@@ -4,10 +4,12 @@ class PicturesController < ApplicationController
 
   def index
     @pictures = Picture.all.order(created_at: "DESC")
+    @favorites = current_user.favorites
   end
 
   def show
     @picture = Picture.find(params[:id])
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
   def new
@@ -65,6 +67,5 @@ class PicturesController < ApplicationController
       redirect_to pictures_path
     end
   end
-
 
 end

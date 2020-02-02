@@ -31,8 +31,16 @@
             <div class="picture-edit clearfix">
               <a href="/pictures/<%=picture.id%>"><i class="fas fa-info-circle fa-color"></i></a>
               <% if picture.user.id == current_user.id %>
-              <a href="/pictures/<%=picture.id%>/edit" data-confirm="本当に編集してよろしいですか"><i class="far fa-edit fa-color"></i></a>
-              <a href="/pictures/<%=picture.id%>" data-confirm="本当に編集してよろしいですか" data-method=delete><i class="fas fa-trash-alt fa-color"></i>
+                <a href="/pictures/<%=picture.id%>/edit" data-confirm="本当に編集してよろしいですか"><i class="far fa-edit fa-color"></i></a>
+                <a href="/pictures/<%=picture.id%>" data-confirm="本当に編集してよろしいですか" data-method=delete><i class="fas fa-trash-alt fa-color"></i>
+              <% end %>
+              <% unless picture.user_id == current_user.id %>
+                <% if @favorites.find_by(picture_id: picture.id).present? %>
+                <% @favorite = @favorites.find_by(picture_id: picture.id) %>
+                <a href="/favorites/<%=@favorite.id%>" data-method=delete><i class="fas fa-heart fa-color"></i>
+                <% else %>
+                <a href="/favorites?picture_id=<%=picture.id %>" data-method=post><i class="far fa-heart fa-color"></i>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -44,8 +52,27 @@
 
     <!-- 友達リスト表示 -->
     <div class="col-md-2">
-      <h4>友達リスト</h4>
+      <h4>お気に入り</h4>
       <div class="sidemenu">
+        <ul>
+          <% current_user.favorites.each do |favorite| %>
+          <% picture = @pictures.find(favorite.picture_id) %>
+            <a href="/pictures/<%=picture.id%>">
+              <li>
+                <div class="friend-img clearfix">
+                  <% if picture.image.url %>
+                    <%= image_tag picture.image.url %>
+                  <% else %>
+                    <%= image_tag('no_image.png') %>
+                  <% end %>
+                </div>
+                <div class="frien-name">
+                  <%= picture.title %>
+                </div>
+              </li>
+            </a>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
