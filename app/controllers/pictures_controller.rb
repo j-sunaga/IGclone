@@ -26,6 +26,7 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.build(picture_params)
     if @picture.save
+      ContactMailer.contact_mail(current_user).deliver  ##追記
       redirect_to pictures_path, notice: "タイムラインを投稿しました！"
     else
       render action: :new
