@@ -1,49 +1,47 @@
 <div class="container-fluid">
   <div class="row">
-
     <!-- タイムライン表示画面 -->
     <div class="col-md-9">
       <h4>お気に入り一覧</h4>
       <!-- つぶやき一覧を表示する -->
       <div class="row row-eq-height">
-      <div class = "pictures">
-        <% if @favorites.empty? %>
-        <h5> お気に入りの写真はありません</h5>
-        <% else %>
-        <% @favorites.each {|favorite| %>
-        <% picture = Picture.find_by(id: favorite.picture_id) %>
-          <div class="col-md-4">
-          <div class="picture">
-            <div class="picture-data clearfix">
-              <div class="profile-img">
-                <img src="<%=picture.user.image%>" alt="">
-              </div>
-              <span class="picture-title"><%= picture.user.name %></span>
-              <span class="create-date"><%= picture.created_at.strftime("%Y年%m月%d日") %></span>
-            </div>
-            <div class="picture-content">
-              <p>タイトル : <%= picture.title %></p>
-              <p>内容: <%= picture.content %></p>
-            </div>
-              <div class="picture-img">
-                <% if picture.image && picture.image.url %>
-                <img src="<%=picture.image%>" alt="">
-                <% else %>
-                <%= image_tag('no_image.png') %>
-                <% end %>
-              </div>
-            <div class="picture-edit clearfix">
-              <a href="/pictures/<%=picture.id%>"><i class="fas fa-info-circle fa-color"></i></a>
-              <% @favorite = @favorites.find_by(picture_id: picture.id) %>
-              <a href="/favorites/<%=@favorite.id%>" data-method=delete><i class="fas fa-heart fa-color"></i>
-            </div>
-          </div>
+        <div class = "pictures">
+          <% if @favorites.empty? %>
+          <h5> お気に入りの写真はありません</h5>
+          <% else %>
+            <% @favorites.each {|favorite| %>
+              <% picture = Picture.find_by(id: favorite.picture_id) %>
+                <div class="col-md-4">
+                  <div class="picture">
+                    <div class="picture-data clearfix">
+                      <div class="profile-img">
+                        <img src="<%=picture.user.image%>" alt="">
+                      </div>
+                      <span class="picture-title"><%= picture.user.name %></span>
+                      <span class="create-date"><%= picture.created_at.strftime("%Y年%m月%d日") %></span>
+                    </div>
+                    <div class="picture-content">
+                      <p>タイトル : <%= picture.title %></p>
+                      <p>内容: <%= picture.content %></p>
+                    </div>
+                    <div class="picture-img">
+                      <% if picture.image && picture.image.url %>
+                        <img src="<%=picture.image%>" alt="">
+                      <% else %>
+                        <%= image_tag('no_image.png') %>
+                      <% end %>
+                    </div>
+                    <div class="picture-edit clearfix">
+                      <a href="/pictures/<%=picture.id%>"><i class="fas fa-info-circle fa-color"></i></a>
+                      <% @favorite = @favorites.find_by(picture_id: picture.id) %>
+                      <a href="/favorites/<%=@favorite.id%>" data-method=delete><i class="fas fa-heart fa-color"></i>
+                    </div>
+                  </div>
+                </div>
+            <% } %>
+          <% end %>
         </div>
-        <% } %>
-        <% end %>
       </div>
     </div>
-    </div>
-
   </div>
 </div>

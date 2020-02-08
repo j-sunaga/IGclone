@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   #アソシエーション
   has_many :pictures
   has_many :favorites, dependent: :destroy

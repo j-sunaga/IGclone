@@ -8,18 +8,18 @@
       <div class="row row-eq-height">
         <% @pictures.each {|picture| %>
           <div class="col-md-4">
-          <div class="picture">
-            <div class="picture-data clearfix">
-              <div class="profile-img">
-                <img src="<%=picture.user.image%>" alt="">
+            <div class="picture">
+              <div class="picture-data clearfix">
+                <div class="profile-img">
+                  <img src="<%=picture.user.image%>" alt="">
+                </div>
+                <span class="picture-title"><%= picture.user.name %></span>
+                <span class="create-date"><%= picture.created_at.strftime("%Y年%m月%d日") %></span>
               </div>
-              <span class="picture-title"><%= picture.user.name %></span>
-              <span class="create-date"><%= picture.created_at.strftime("%Y年%m月%d日") %></span>
-            </div>
-            <div class="picture-content">
-              <p>タイトル : <%= picture.title %></p>
-              <p>内容: <%= picture.content %></p>
-            </div>
+              <div class="picture-content">
+                <p>タイトル : <%= picture.title %></p>
+                <p>内容: <%= picture.content %></p>
+              </div>
               <div class="picture-img">
                 <% if picture.image && picture.image.url %>
                 <img src="<%=picture.image%>" alt="">
@@ -27,23 +27,23 @@
                 <%= image_tag('no_image.png') %>
                 <% end %>
               </div>
-            <div class="picture-edit clearfix">
-              <a href="/pictures/<%=picture.id%>"><i class="fas fa-info-circle fa-color"></i></a>
-              <% if picture.user.id == current_user.id %>
-                <a href="/pictures/<%=picture.id%>/edit" data-confirm="本当に編集してよろしいですか"><i class="far fa-edit fa-color"></i></a>
-                <a href="/pictures/<%=picture.id%>" data-confirm="本当に編集してよろしいですか" data-method=delete><i class="fas fa-trash-alt fa-color"></i></a>
-              <% end %>
-              <% unless picture.user_id == current_user.id %>
-                <% if @favorites.find_by(picture_id: picture.id).present? %>
-                <% @favorite = @favorites.find_by(picture_id: picture.id) %>
-                <a href="/favorites/<%=@favorite.id%>?picture_id=<%=picture.id%>" data-method=delete><i class="fas fa-heart fa-color"></i></a>
-                <% else %>
-                <a href="/favorites?picture_id=<%=picture.id %>" data-method=post><i class="far fa-heart fa-color"></i></a>
+              <div class="picture-edit clearfix">
+                <a href="/pictures/<%=picture.id%>"><i class="fas fa-info-circle fa-color"></i></a>
+                <% if picture.user.id == current_user.id %>
+                  <a href="/pictures/<%=picture.id%>/edit" data-confirm="本当に編集してよろしいですか"><i class="far fa-edit fa-color"></i></a>
+                  <a href="/pictures/<%=picture.id%>" data-confirm="本当に編集してよろしいですか" data-method=delete><i class="fas fa-trash-alt fa-color"></i></a>
                 <% end %>
-              <% end %>
+                <% unless picture.user_id == current_user.id %>
+                  <% if @favorites.find_by(picture_id: picture.id).present? %>
+                    <% @favorite = @favorites.find_by(picture_id: picture.id) %>
+                    <a href="/favorites/<%=@favorite.id%>?picture_id=<%=picture.id%>" data-method=delete><i class="fas fa-heart fa-color"></i></a>
+                  <% else %>
+                    <a href="/favorites?picture_id=<%=picture.id %>" data-method=post><i class="far fa-heart fa-color"></i></a>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
         <% } %>
       </div>
     </div>
