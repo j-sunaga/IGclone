@@ -6,7 +6,6 @@
       <h4>投稿一覧</h4>
       <!-- つぶやき一覧を表示する -->
       <div class="row row-eq-height">
-      <div class = "pictures">
         <% @pictures.each {|picture| %>
           <div class="col-md-4">
           <div class="picture">
@@ -32,14 +31,14 @@
               <a href="/pictures/<%=picture.id%>"><i class="fas fa-info-circle fa-color"></i></a>
               <% if picture.user.id == current_user.id %>
                 <a href="/pictures/<%=picture.id%>/edit" data-confirm="本当に編集してよろしいですか"><i class="far fa-edit fa-color"></i></a>
-                <a href="/pictures/<%=picture.id%>" data-confirm="本当に編集してよろしいですか" data-method=delete><i class="fas fa-trash-alt fa-color"></i>
+                <a href="/pictures/<%=picture.id%>" data-confirm="本当に編集してよろしいですか" data-method=delete><i class="fas fa-trash-alt fa-color"></i></a>
               <% end %>
               <% unless picture.user_id == current_user.id %>
                 <% if @favorites.find_by(picture_id: picture.id).present? %>
                 <% @favorite = @favorites.find_by(picture_id: picture.id) %>
-                <a href="/favorites/<%=@favorite.id%>" data-method=delete><i class="fas fa-heart fa-color"></i>
+                <a href="/favorites/<%=@favorite.id%>?picture_id=<%=picture.id%>" data-method=delete><i class="fas fa-heart fa-color"></i></a>
                 <% else %>
-                <a href="/favorites?picture_id=<%=picture.id %>" data-method=post><i class="far fa-heart fa-color"></i>
+                <a href="/favorites?picture_id=<%=picture.id %>" data-method=post><i class="far fa-heart fa-color"></i></a>
                 <% end %>
               <% end %>
             </div>
@@ -47,7 +46,6 @@
         </div>
         <% } %>
       </div>
-    </div>
     </div>
 
     <!-- 友達リスト表示 -->
