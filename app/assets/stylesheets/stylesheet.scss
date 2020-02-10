@@ -59,16 +59,12 @@ h2{
   background-size:cover;
 }
 
-.navbar-text{
-  color: #FFFFFF;
-}
-
-.navbar-text a,.navbar-text a:visited{
+.navbar-default .navbar-brand,.navbar-default:hover .navbar-brand:hover{
   color: white;
   text-decoration: none;
 }
 
-.navbar-brand a,.navbar-brand a:visited{
+.navbar-text a,.navbar-text a:visited{
   color: white;
   text-decoration: none;
 }
