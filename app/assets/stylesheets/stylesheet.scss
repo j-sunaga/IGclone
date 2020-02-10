@@ -55,7 +55,6 @@ h2{
 //navbar
 .navbar{
   background-image: url("header.png");
-  height: 50px;
   background-size:cover;
 }
 
@@ -128,6 +127,7 @@ h2{
   margin-bottom: 10px;
   border: solid 0.5px #db2f79;
   border-radius: 10%;
+  min-width: 200px;
 }
 
 .picture-data,.picture-edit,.picture-content,.picture-img{
