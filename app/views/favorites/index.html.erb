@@ -34,7 +34,7 @@
                     <div class="picture-edit clearfix">
                       <a href="/pictures/<%=picture.id%>"><i class="fas fa-info-circle fa-color"></i></a>
                       <% @favorite = @favorites.find_by(picture_id: picture.id) %>
-                      <a href="/favorites/<%=@favorite.id%>" data-method=delete><i class="fas fa-heart fa-color"></i>
+                      <a href="/favorites/<%=@favorite.id%>" data-method=delete><i class="fas fa-heart fa-color"></i></a>
                     </div>
                   </div>
                 </div>
