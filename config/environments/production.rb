@@ -93,9 +93,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'limitless-taiga-67145.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
-    domain: "heroku.com",
+    user_name: ENV['GMAIL_USERNAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    domain: "gmail.com",
     address: "smtp.SendGrid.net",
     port: 587,
     authentication: :plain,
